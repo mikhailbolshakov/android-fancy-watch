@@ -3,6 +3,7 @@ package ru.mikhailb.fancywatch
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
+import android.util.AttributeSet
 import android.view.View
 import ru.mikhailb.fancywatch.face.Point
 import ru.mikhailb.fancywatch.face.WatchFaceContext
@@ -10,11 +11,16 @@ import ru.mikhailb.fancywatch.face.impl.SimpleWatchFace
 import ru.mikhailb.fancywatch.timer.WatchTimer
 import ru.mikhailb.fancywatch.watch.Watch
 
-class FancyWatchView(context: Context) : View(context) {
+class FancyWatchView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : View(context, attrs, defStyleAttr) {
+
 
     private val timer: WatchTimer = WatchTimer { onTimeChanged() }
     private val watch = Watch()
     private val face = SimpleWatchFace()
+
+    constructor(context: Context): this(context, null)
+
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()

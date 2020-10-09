@@ -1,5 +1,6 @@
 package ru.mikhailb.fancywatch.face.impl
 
+import android.graphics.BlendMode
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
